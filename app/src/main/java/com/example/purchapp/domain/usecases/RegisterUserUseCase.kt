@@ -1,7 +1,15 @@
 package com.example.purchapp.domain.usecases
 
-class RegisterUserUseCase {
-    suspend operator fun invoke() {
-        TODO()
+import com.example.purchapp.domain.repositories.AuthRepository
+
+class RegisterUserUseCase(
+    private val authRepository: AuthRepository
+) {
+    suspend operator fun invoke(
+        login: String,
+        password: String,
+        fullName: String
+    ): Result<Unit> {
+        return authRepository.register(fullName = fullName, password = password, login = login)
     }
 }

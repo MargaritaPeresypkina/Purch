@@ -1,11 +1,12 @@
 package com.example.purchapp.domain.usecases
 
+import com.example.purchapp.domain.models.User
 import com.example.purchapp.domain.repositories.AuthRepository
 
-class LogoutUserUseCase(
+class GetCurrentUserUseCase(
     private val authRepository: AuthRepository
 ) {
-    suspend operator fun invoke(): Result<Unit> {
-        return authRepository.logout()
+    operator fun invoke(): Result<User> {
+        return authRepository.getCurrentUser()
     }
 }

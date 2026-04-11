@@ -7,14 +7,16 @@ interface AuthRepository {
         fullName: String,
         login: String,
         password: String
-    ): Result<Unit>
+    ): Result<User>
 
     suspend fun login(
         login: String,
         password: String
-    ): Result<Unit>
+    ): Result<User>
 
-    suspend fun logout(): Result<Unit>
+    fun logout(): Result<Unit>
 
-    fun getCurrentUser(): Result<User>
+    fun getCurrentUser(): Result<User?>
+
+    fun getCurrentUserId(): Result<String?>
 }

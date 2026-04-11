@@ -8,22 +8,26 @@ class AuthRepositoryImpl : AuthRepository {
         fullName: String,
         login: String,
         password: String
-    ): Result<Unit> {
+    ): Result<User> {
         TODO("Not yet implemented")
     }
 
     override suspend fun login(
         login: String,
         password: String
-    ): Result<Unit> {
+    ): Result<User> {
         TODO("Not yet implemented")
     }
 
-    override suspend fun logout(): Result<Unit> {
+    override fun logout(): Result<Unit> {
         TODO("Not yet implemented")
     }
 
-    override fun getCurrentUser(): Result<User> {
+    override fun getCurrentUser(): Result<User?> {
+        TODO("Not yet implemented")
+    }
+
+    override fun getCurrentUserId(): Result<String?> {
         TODO("Not yet implemented")
     }
 }

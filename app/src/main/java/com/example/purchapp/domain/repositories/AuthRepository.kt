@@ -1,6 +1,6 @@
 package com.example.purchapp.domain.repositories
 
-import com.example.purchapp.domain.models.User
+import com.example.purchapp.domain.entities.User
 
 interface AuthRepository {
     suspend fun register(

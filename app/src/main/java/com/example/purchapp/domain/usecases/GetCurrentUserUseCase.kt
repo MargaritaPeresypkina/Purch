@@ -1,6 +1,6 @@
 package com.example.purchapp.domain.usecases
 
-import com.example.purchapp.domain.models.User
+import com.example.purchapp.domain.entities.User
 import com.example.purchapp.domain.repositories.AuthRepository
 
 class GetCurrentUserUseCase(

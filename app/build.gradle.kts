@@ -41,6 +41,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.kotlinx.coroutines.play.services)
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.auth)
     ksp(libs.hilt.compiler)

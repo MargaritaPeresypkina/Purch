@@ -1,9 +1,11 @@
 package com.example.purchapp.data.local.dao
 
+import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Transaction
 import com.example.purchapp.data.local.models.PackWithContentDbModel
 
+@Dao
 interface PackDao {
 
     @Transaction

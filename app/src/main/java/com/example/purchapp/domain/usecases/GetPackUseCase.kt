@@ -1,7 +1,12 @@
 package com.example.purchapp.domain.usecases
 
-class GetPackUseCase {
-    suspend operator fun invoke() {
-        TODO()
+import com.example.purchapp.domain.entities.Pack
+import com.example.purchapp.domain.repositories.PackRepository
+
+class GetPackUseCase (
+    private val packRepository: PackRepository
+) {
+    suspend operator fun invoke(packId: String): Result<Pack> {
+        return packRepository.getPack(packId)
     }
 }

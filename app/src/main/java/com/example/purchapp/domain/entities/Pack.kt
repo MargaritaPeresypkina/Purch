@@ -1,7 +1,7 @@
 package com.example.purchapp.domain.entities
 
 data class Pack(
-    val id: Int,
+    val id: String,
     val unit: Unit,
     val name: String,
     val type: ProductType,

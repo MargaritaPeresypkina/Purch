@@ -1,4 +1,4 @@
-package com.example.purchapp.domain.models
+package com.example.purchapp.domain.entities
 
 data class User(
     val id: String,

@@ -41,12 +41,13 @@ android {
 }
 
 dependencies {
+    implementation(libs.firebase.firestore)
+    implementation(libs.firebase.auth)
     ksp(libs.hilt.compiler)
     implementation(libs.hilt.android)
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
     ksp(libs.room.compiler)
-    implementation(libs.firebase.analytics)
     implementation(platform(libs.firebase.bom))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

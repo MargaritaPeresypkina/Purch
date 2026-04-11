@@ -1,11 +1,11 @@
 package com.example.purchapp.domain.usecases
 
-import com.example.purchapp.domain.repositories.BasketRepository
+import com.example.purchapp.domain.repositories.PackRepository
 
 class AddPackToBasketUseCase(
-    private val basketRepository: BasketRepository
+    private val packRepository: PackRepository
 ) {
     suspend operator fun invoke(userId: String, packId: String, quantity: Int): Result<Unit> {
-        return basketRepository.addPackToBasket(userId = userId, packId = packId, quantity = quantity)
+        return packRepository.addPackToBasket(userId = userId, packId = packId, quantity = quantity)
     }
 }

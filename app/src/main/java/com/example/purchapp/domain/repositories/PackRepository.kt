@@ -8,4 +8,7 @@ interface PackRepository {
 
     suspend fun getPack(packId: String): Result<Pack>
 
+    suspend fun addPackToBasket(userId: String, packId: String, quantity: Int): Result<Unit>
+
+
 }

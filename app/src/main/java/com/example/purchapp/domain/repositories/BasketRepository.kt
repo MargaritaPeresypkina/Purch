@@ -6,5 +6,6 @@ interface BasketRepository {
 
     suspend fun getAllBasketItems(userId: String): Result<List<BasketItem>>
 
-    suspend fun addPackToBasket(userId: String, packId: String, quantity: Int): Result<Unit>
+    suspend fun payForBasketItems(userId: String): Result<Int>
+
 }

@@ -1,8 +1,9 @@
 package com.example.purchapp.domain.usecases
 
 import com.example.purchapp.domain.repositories.PackRepository
+import javax.inject.Inject
 
-class AddPackToBasketUseCase(
+class AddPackToBasketUseCase @Inject constructor(
     private val packRepository: PackRepository
 ) {
     suspend operator fun invoke(userId: String, packId: String, quantity: Int): Result<Unit> {

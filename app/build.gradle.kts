@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.gms)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -39,6 +40,9 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.room.compiler)
     implementation(libs.firebase.analytics)
     implementation(platform(libs.firebase.bom))
     implementation(libs.androidx.core.ktx)

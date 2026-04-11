@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "548754986914",
+    "project_id": "purchapp-52b42",
+    "storage_bucket": "purchapp-52b42.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:548754986914:android:12758a34aa7e6d9b1e04fb",
+        "android_client_info": {
+          "package_name": "com.example.purchapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhCgg_ns7_zLBkW--UNtMAc6eJ38ahcTE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

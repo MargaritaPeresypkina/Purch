@@ -26,8 +26,4 @@ class AuthRepositoryImpl : AuthRepository {
     override fun getCurrentUser(): Result<User?> {
         TODO("Not yet implemented")
     }
-
-    override fun getCurrentUserId(): Result<String?> {
-        TODO("Not yet implemented")
-    }
 }

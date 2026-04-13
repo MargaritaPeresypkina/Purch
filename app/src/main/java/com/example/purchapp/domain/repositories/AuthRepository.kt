@@ -17,6 +17,4 @@ interface AuthRepository {
     fun logout(): Result<Unit>
 
     fun getCurrentUser(): Result<User?>
-
-    fun getCurrentUserId(): Result<String?>
 }

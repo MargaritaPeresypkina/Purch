@@ -1,6 +1,5 @@
 package com.example.purchapp.data.remote.auth
 
-import com.example.purchapp.domain.entities.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.userProfileChangeRequest
 import kotlinx.coroutines.tasks.await
@@ -13,36 +12,38 @@ class FirebaseAuthService @Inject constructor(
         fullName: String,
         login: String,
         password: String
-    ): User {
-            val result = firebaseAuth.createUserWithEmailAndPassword(login, password).await()
-            val firebaseUser = result.user ?: throw Exception("User creation failed")
+    ): Result<Unit> {
+        return try {
+            val authResult = firebaseAuth.createUserWithEmailAndPassword(login, password).await()
+            val firebaseUser = authResult.user ?: throw Exception("User creation failed")
 
             firebaseUser.updateProfile(
                 userProfileChangeRequest {
                     displayName = fullName
                 }
             ).await()
-            return User(id = firebaseUser.uid, fullName = firebaseUser.displayName ?: fullName)
+
+            Result.success(Unit)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
     }
 
     suspend fun login(
-        login: String,
+        email: String,
         password: String
-    ): User {
-        val result = firebaseAuth.signInWithEmailAndPassword(login, password).await()
-        val firebaseUser = result.user ?: throw Exception("Login failed")
-        return User(id = firebaseUser.uid, fullName = firebaseUser.displayName ?: "Unknown")
-    }
-
-    fun getCurrentUser(): User? {
-        val firebaseUser = firebaseAuth.currentUser ?: return null
-        return User(
-            id = firebaseUser.uid,
-            fullName = firebaseUser.displayName ?: ""
-        )
+    ): Result<Unit> {
+        return try {
+            firebaseAuth.signInWithEmailAndPassword(email, password).await()
+            Result.success(Unit)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
     }
 
     fun getCurrentUserId(): String? = firebaseAuth.currentUser?.uid
+
+    fun isLoggedIn(): Boolean = firebaseAuth.currentUser != null
 
     fun logout() {
         firebaseAuth.signOut()

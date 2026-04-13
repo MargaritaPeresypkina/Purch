@@ -26,4 +26,10 @@ data class BarcodeDbModel(
     @ColumnInfo("pack_id")
     val packId: Int,
     val body: String
-)
+) {
+    init {
+        require(body.length <= 30) {
+            "Body length cannot exceed 30 characters. Current length: ${body.length}"
+        }
+    }
+}

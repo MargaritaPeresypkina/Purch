@@ -27,4 +27,10 @@ data class PackDbModel(
     val name: String,
     val type: Int,
     val quant: Int,
-)
+) {
+    init {
+        require(name.length <= 50) {
+            "Name length cannot exceed 50 characters. Current length: ${name.length}"
+        }
+    }
+}
